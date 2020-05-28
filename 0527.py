@@ -100,3 +100,26 @@ print(cc)
 # 如何判断一个对象是可迭代对象呢？方法是通过collections模块的Iterable类型判断
 canName = isinstance('abc', Iterable)
 print(canName)
+# 同时引用了两个变量
+for x, y in [(1, 1), (2, 4), (3, 9)]:
+    print(x, y)
+
+# 列表生成
+
+arrayTemp = [x*x for x in range(1, 11)]
+print(arrayTemp)
+
+arrayTemp2 = [x*y for x in range(1, 11) for y in range(2,12)]
+print(arrayTemp2)
+
+# 生成器generator
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+for x in fib(6):
+    print(x)
